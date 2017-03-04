@@ -1,0 +1,147 @@
+gmchess (0.29.6-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * autoreconf to fix FTBFS on arm64. (Closes: #727872)
+
+ -- Adrian Bunk <bunk@debian.org>  Sat, 04 Mar 2017 17:39:45 +0200
+
+gmchess (0.29.6-2) unstable; urgency=low
+
+  * Fix build on kfreebsd-*
+
+ -- Aron Xu <aron@debian.org>  Sun, 01 Jan 2012 23:49:28 +0800
+
+gmchess (0.29.6-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Aron Xu <aron@debian.org>  Sun, 25 Dec 2011 21:10:37 +0800
+
+gmchess (0.29.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Move to Debian Chinese Team.
+
+ -- Aron Xu <aron@debian.org>  Fri, 21 Oct 2011 23:32:08 +0800
+
+gmchess (0.29.3-5) unstable; urgency=low
+
+  * Fix FTBFS by modifying debian/rules (Closes: #638351).
+
+ -- Aron Xu <aron@debian.org>  Fri, 19 Aug 2011 10:52:04 +0800
+
+gmchess (0.29.3-4) unstable; urgency=low
+
+  * Use my @debian.org address.
+  * Use dh compat 8.
+  * Enable -O3 by default, now build on ia64.
+    while LTO only success when gold is present, not enabling.
+  * Use new dh rules.tiny style.
+  * Add a patch to workaround FTBFS
+
+ -- Aron Xu <aron@debian.org>  Fri, 19 Aug 2011 01:21:44 +0800
+
+gmchess (0.29.3-3) unstable; urgency=low
+
+  * debian/control:
+    - Remove useless ${shlibs:Depends}.
+    + Bump std-ver: 3.9.2.
+  * debian/libeval0-dev.install:
+    - Wipe out dependency_libs from .la files, per Policy 10.2
+      (Closes: #621278).
+  * debian/clean:
+    - Remove useless gmchess.desktop during clean.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Sat, 09 Apr 2011 14:42:01 +0800
+
+gmchess (0.29.3-2) unstable; urgency=low
+
+  * debian/control:
+    + Correct Conflicts and Provides for libeval0-dev.
+  * debian/clean:
+    + Add ./output to remove it.
+  * debian/patches:
+    - Remove debian-changes caused by the build-time ./output file.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Fri, 18 Feb 2011 22:00:00 +0800
+
+gmchess (0.29.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patch/0001-fix-the-warning-from-cppcheck.patch:
+    - Upstream patch to fix warnings from cppcheck.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Fri, 03 Dec 2010 19:24:21 +0800
+
+gmchess (0.29.2-1) unstable; urgency=low
+
+  * New upstream release:
+      Search libeval0.so.0 instead of libeval0.so.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Mon, 04 Oct 2010 19:04:43 +0800
+
+gmchess (0.29.1-1) unstable; urgency=low
+
+  * New upstream release: 
+      Add network game support.
+  * debian/control:
+      Bump std-ver to 3.9.1;
+      Remove duplicate section info from binaries: gmchess, eleeye.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Sun, 19 Sep 2010 18:34:12 +0800
+
+gmchess (0.20.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: 
+       Change section of eleeye from comm to games, 
+       Raise Standards-Version from 3.8.3 to 3.8.4.
+  * debian/source/format: using `3.0 (quilt)' format.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Tue, 06 Apr 2010 18:43:48 +0800
+
+gmchess (0.20.4-2) unstable; urgency=low
+
+  * Correct location of eleeye_engine and convert_png.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Mon, 14 Dec 2009 15:14:56 +0800
+
+gmchess (0.20.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Tue, 08 Dec 2009 13:38:13 +0800
+
+gmchess (0.20.3-2) unstable; urgency=low
+
+  * Add src/engine/mips.h to debian/copyrigh
+  * Add "Replaces" section for convert-pgn, eleeye, libeval0
+     (closes: bug#550696).
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Mon, 12 Oct 2009 19:07:30 +0800
+
+gmchess (0.20.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Split gmchess into separate packages.
+  * Solve cross platform issue (closes: bug#544757).
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Fri, 9 Oct 2009 22:05:33 +0800
+
+gmchess (0.20.2-3) unstable; urgency=low
+
+  * Added menu items. (closes: bug#544510)
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Tue, 1 Sep 2009 21:50:25 +0800
+
+gmchess (0.20.2-2) unstable; urgency=low
+
+  * Fixed locale path.
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Sat, 22 Aug 2009 22:27:25 +0800
+
+gmchess (0.20.2-1) unstable; urgency=low
+
+  * Initial release (closes: bug#527040)
+
+ -- Aron Xu <happyaron.xu@gmail.com>  Sat, 22 Aug 2009 21:40:25 +0800

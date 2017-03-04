@@ -1,0 +1,79 @@
+Source: gmchess
+Section: games
+Priority: optional
+Maintainer: Debian Chinese Team <chinese-developers@lists.alioth.debian.org>
+Uploaders: Aron Xu <aron@debian.org>
+Build-Depends: debhelper (>= 9.20160403~), autotools-dev, intltool (>= 0.35.0), gettext, perl (>= 5.8.1), libxml2, libglademm-2.4-dev (>= 2.6.0), libtool, imagemagick
+Standards-Version: 3.9.2
+Homepage: http://code.google.com/p/gmchess/
+
+Package: gmchess
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, eleeye, convert-pgn
+Description: Chinese chess game (Xiangqi) 
+ gmchess enables you to play Chinese chess (Xiangqi) against
+ a human opponent or the computer, read many chess manuals
+ and improve your skills.
+ .
+ Chinese chess (Xiangqi) is one of the most popular chess
+ games to have originated in China.
+
+Package: eleeye
+Architecture: any
+Replaces: gmchess (<< 0.20.3-2)
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeval0
+Description: Chinese chess (Xiangqi) engine
+ elephant eye (eleeye) is a Chinese chess (Xiangqi) engine
+ providing a set of functions for developing Xiangqi games using
+ the Universal Chess Interface, which is an open communication
+ protocol that enables a chess program engine to communicate with
+ its user interface.
+ .
+ Chinese chess (Xiangqi) is one of the most popular chess
+ games to have originated in China.
+
+Package: convert-pgn
+Section: utils
+Architecture: any
+Replaces: gmchess (<< 0.20.3-2)
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: chess book format converter
+ Convert format of given chess book from one format to PGN,
+ the Portable Game Notation format.
+ .
+ PGN is an XML-like computer-processible format for recording
+ chess games (both the moves and related data).
+ .
+ Supported source chess book formats: ccm, che, chn, mxq, xqf
+
+
+Package: libeval0
+Section: libs
+Architecture: any
+Replaces: gmchess (<< 0.20.3-1)
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: support library for eleeye
+ elephant eye (eleeye) is a Chinese chess (Xiangqi) engine
+ providing a set of functions for developing Xiangqi games.
+ .
+ This package provide library that eleeye engine used to
+ keep algorithm's balance.
+ .
+ Chinese chess (Xiangqi) is one of the most popular chess
+ games to have originated in China.
+
+Package: libeval0-dev
+Section: libdevel
+Architecture: any
+Provides: libeval-dev
+Conflicts: libeval-dev
+Depends: ${misc:Depends}, libeval0 (= ${binary:Version})
+Description: support library for eleeye - development file
+ elephant eye (eleeye) is a Chinese chess (Xiangqi) engine
+ providing a set of functions for developing Xiangqi games.
+ .
+ This package provide development file for library that
+ eleeye engine used to keep algorithm's balance.
+ .
+ Chinese chess (Xiangqi) is one of the most popular chess
+ games to have originated in China.

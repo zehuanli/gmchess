@@ -1,0 +1,353 @@
+From 275949a8260aa2cadfcdb2920ca3a9671703ca51 Mon Sep 17 00:00:00 2001
+From: lerosua <lerosua@gmail.com>
+Date: Sat, 20 Nov 2010 19:06:09 +0800
+Subject: [PATCH] fix the warning from cppcheck
+
+---
+ src/Board.cc               |   12 ++++++------
+ src/Engine.cc              |   20 ++++++++++++++------
+ src/MainWindow.cc          |   33 ++++++++++++++++-----------------
+ src/MainWindow.h           |    5 ++---
+ src/engine/convert_pgn.cpp |    4 +++-
+ src/engine/x86asm.h        |   10 +++++++---
+ src/main.cc                |    7 +++----
+ src/robot.h                |    8 ++++----
+ 8 files changed, 55 insertions(+), 44 deletions(-)
+--- a/src/Board.cc
++++ b/src/Board.cc
+@@ -732,8 +732,8 @@
+ 	int dst = m_engine.get_dst_xy(dst_x,dst_y,is_rev_board);
+ 	int src = m_engine.get_chessman_xy(selected_chessman);
+ 	int mv =  m_engine.get_move(src,dst);
+-	int eat = m_engine.get_move_eat(mv);
+-	DLOG("Board:: src = %x dst = %x mv = %d eat = %d\n",src,dst,mv,eat);
++	//int eat = m_engine.get_move_eat(mv);
++	//DLOG("Board:: src = %x dst = %x mv = %d eat = %d\n",src,dst,mv,eat);
+ 	return try_move(mv);
+ }
+ int Board::try_move(int mv)
+@@ -1349,11 +1349,11 @@
+ int Board::init_send_socket()
+ {
+ 	int sockfd;
+-	char buf[1024];
++	//char buf[1024];
+ 	struct sockaddr_in srvaddr;
+ 
+ 	EC_THROW(-1 == (sockfd=socket(AF_INET,SOCK_STREAM,0)));
+-	bzero(&srvaddr,sizeof(srvaddr));
++	memset(&srvaddr,0,sizeof(srvaddr));
+ 	srvaddr.sin_family=AF_INET;
+ 	srvaddr.sin_port=htons(GMPORT+1);
+ 	srvaddr.sin_addr.s_addr=htonl(INADDR_ANY);
+@@ -1367,11 +1367,11 @@
+ {
+ 
+ 	int sockfd;
+-	char buf[1024];
++	//char buf[1024];
+ 	struct sockaddr_in srvaddr;
+ 
+ 	EC_THROW(-1 == (sockfd=socket(AF_INET,SOCK_STREAM,0)));
+-	bzero(&srvaddr,sizeof(srvaddr));
++	memset(&srvaddr,0,sizeof(srvaddr));
+ 	srvaddr.sin_family=AF_INET;
+ 	srvaddr.sin_port=htons(GMPORT+1);
+ 	srvaddr.sin_addr.s_addr=htonl(INADDR_ANY);
+--- a/src/Engine.cc
++++ b/src/Engine.cc
+@@ -22,6 +22,9 @@
+ Engine::Engine():black_player(0)
+ 		 ,m_checked(0)
+ {
++	memset(chessboard, 0 , sizeof(chessboard));
++	memset(revchessboard, 0, sizeof(revchessboard));
++	memset(chessmans, 0, sizeof(chessmans));
+ 	clean_board();
+ }
+ 
+@@ -759,7 +762,7 @@
+ 				int min_t = src<dst?src:dst;
+ 				int num_t = abs(RANK_Y(src)-RANK_Y(dst))-1;
+ 				min_t +=16;
+-				int paotai=0;
++				//int paotai=0;
+ 				if(!eated){
+ 					for(int i =0;i<num_t;i++){
+ 						if(chessboard[min_t]==0)
+@@ -770,6 +773,7 @@
+ 					return true;
+ 				}
+ 				else{
++					int paotai=0;
+ 					for(int i =0;i<num_t;i++){
+ 						if(chessboard[min_t]==0)
+ 							;
+@@ -786,7 +790,6 @@
+ 				int min_t = src<dst?src:dst;
+ 				int num_t = abs(src-dst) -1 ;
+ 				min_t++;
+-				int paotai=0;
+ 				if(!eated){
+ 					for(int i =0;i<num_t; i++){
+ 						if(chessboard[min_t]==0)
+@@ -797,6 +800,7 @@
+ 					return true;
+ 				}
+ 				else {
++					int paotai=0;
+ 					for(int i =0;i<num_t; i++){
+ 						if(chessboard[min_t]==0)
+ 							;
+@@ -1650,7 +1654,11 @@
+ 	DLOG("hazi[0...3] = %c%c%c%c\n",c_hanzi.word[0],c_hanzi.word[1],c_hanzi.word[2],c_hanzi.word[3]);
+ 	/** cman_type 是棋子类型*/
+ 	int cman_type = fen_to_piece(c_hanzi.word[0]);
+-	int src_x,src_y,dst_x,dst_y;
++	//int src_x,src_y,dst_x,dst_y;
++	int src_x = 0;
++	int src_y = 0;
++	int dst_x = 0;
++	int dst_y = 0;
+ 	int num =0;
+ 
+ 	DLOG("who is going black=%d\n",black_player);
+@@ -1935,7 +1943,7 @@
+ 	}
+ 	else if(4==cman_type||5==cman_type){
+ 		/** 车炮的目标坐标生成*/
+-		int type_num;
++		int type_num=0;
+ 			if(cman_type==4)
+ 				type_num = 23;
+ 			else if(5==cman_type)
+@@ -2164,7 +2172,7 @@
+ 		}
+ 
+ 		if(c_hanzi.word[2] == '+'){
+-			char c= c_hanzi.word[3];
++			//char c= c_hanzi.word[3];
+ 			dst_x = src_x;
+ 			if(!black_player)
+ 				dst_y = src_y + 1;
+@@ -2172,7 +2180,7 @@
+ 				dst_y = src_y - 1;
+ 		}
+ 		else if(c_hanzi.word[2] == '-'){
+-			char c= c_hanzi.word[3];
++			//char c= c_hanzi.word[3];
+ 			dst_x = src_x;
+ 			if(!black_player)
+ 				dst_y = src_y - 1;
+--- a/src/MainWindow.cc
++++ b/src/MainWindow.cc
+@@ -884,7 +884,7 @@
+ 
+ }
+ 
+-void MainWindow::on_network_game(const std::string me_name,const std::string& enemy_name,bool role_red_)
++void MainWindow::on_network_game(const std::string& me_name,const std::string& enemy_name,bool role_red_)
+ {
+ 		p1_name->set_text(enemy_name);
+ 		p2_name->set_text(me_name);
+@@ -934,7 +934,7 @@
+ 		Gtk::MessageDialog dialog_info(*this, _("Information"), false);
+ 		Glib::ustring msg =_("You are play with network game,Please over it first!");
+ 		dialog_info.set_secondary_text(msg);
+-		int result = dialog_info.run();
++		dialog_info.run();
+ 		return ;
+ 
+ 	}
+@@ -984,15 +984,15 @@
+         int result =dialog.run();
+         switch (result) {
+             case (Gtk::RESPONSE_OK): {
+-		    board->send_to_socket("resign");
+-		Gtk::MessageDialog dialog_info(*this, _("Information"), false);
+-		Glib::ustring msg =_("You lose the game!");
+-		dialog_info.set_secondary_text(msg);
+-		int result = dialog_info.run();
+-                board->free_game();
+-                set_status();
++				board->send_to_socket("resign");
++				Gtk::MessageDialog dialog_info(*this, _("Information"), false);
++				Glib::ustring msg =_("You lose the game!");
++				dialog_info.set_secondary_text(msg);
++				dialog_info.run();
++				board->free_game();
++				set_status();
+                             break;
+-                    }
++				}
+ 
+             case (Gtk::RESPONSE_CANCEL): {
+                 //board->free_game(false);
+@@ -1020,7 +1020,7 @@
+ 			Gtk::MessageDialog dialog(*this, _("Warning"), false);
+ 			Glib::ustring msg =_("Only ask rue game when you are going,so wait a minute!");
+ 			dialog.set_secondary_text(msg);
+-			int result = dialog.run();
++			dialog.run();
+ 		}
+ 	}
+ 
+@@ -1040,7 +1040,7 @@
+ 			Gtk::MessageDialog dialog(*this, _("Warning"), false);
+ 			Glib::ustring msg =_("Only rue game when you are going,so wait a minute!");
+ 			dialog.set_secondary_text(msg);
+-			int result = dialog.run();
++			dialog.run();
+ 		}
+ 
+ 	}
+@@ -1052,7 +1052,7 @@
+ 			Gtk::MessageDialog dialog(*this, _("Warning"), false);
+ 			Glib::ustring msg =_("Only rue game when you are going,so wait a minute!");
+ 			dialog.set_secondary_text(msg);
+-			int result = dialog.run();
++			dialog.run();
+ 		}
+ 
+ 
+@@ -1091,7 +1091,7 @@
+ 	}
+ 		Gtk::MessageDialog dialog_info(*this, _("Game End"), false);
+ 		dialog_info.set_secondary_text(msg);
+-		int result = dialog_info.run();
++		dialog_info.run();
+ 
+ 		if(board->is_network_game())
+ 			auto_save_chess_file();
+@@ -1120,8 +1120,7 @@
+ }
+ void MainWindow::start_with(const std::string& param)
+ {
+-		size_t pos;
+-		if((pos = param.find("network-game-red,"))!= std::string::npos){
++		if((param.find("network-game-red,"))!= std::string::npos){
+ 			//start network game with red player
+ 			std::string enemy_name,my_name;
+ 			size_t pos_s,pos_e,pos_m;
+@@ -1133,7 +1132,7 @@
+ 			my_name = param.substr(pos_e+9,pos_m-pos_e-9);
+ 			
+ 			on_network_game(enemy_name,my_name,true);
+-		}else if((pos = param.find("network-game-black,")) != std::string::npos){
++		}else if((param.find("network-game-black,")) != std::string::npos){
+ 			//start network game with black player
+ 			std::string enemy_name,my_name;
+ 			size_t pos_s,pos_e,pos_m;
+--- a/src/MainWindow.h
++++ b/src/MainWindow.h
+@@ -26,8 +26,6 @@
+ #include <gtkmm/liststore.h>
+ #include "Board.h"
+ #define main_ui  DATA_DIR"/gmchess.glade"
+-//typedef Glib::RefPtr < Gnome::Glade::Xml > GlademmXML;
+-typedef Glib::RefPtr < Gtk::Builder> GBuilderXML;
+ 
+ class Board;
+ class BookView;
+@@ -54,7 +52,7 @@
+ 		 * @param enemy_ 对方名字
+ 		 * @param role_red_ 已方角色
+ 		 */
+-		void on_network_game(const std::string me_,const std::string& enemy_,bool role_red_=true);
++		void on_network_game(const std::string& me_,const std::string& enemy_,bool role_red_=true);
+ 		/** gmchess最开始运行带的参数解释函数*/
+ 		void start_with(const std::string& param);
+ 		/** 认输*/
+@@ -134,6 +132,7 @@
+ 		Glib::RefPtr<Gtk::ListStore>	m_refTreeModel;
+ 		
+ 	private:
++		typedef Glib::RefPtr < Gtk::Builder> GBuilderXML;
+ 		Board*				board;
+ 		GBuilderXML			ui_xml;
+ 		Glib::RefPtr<Gtk::UIManager>	ui_manager;
+--- a/src/engine/convert_pgn.cpp
++++ b/src/engine/convert_pgn.cpp
+@@ -633,8 +633,10 @@
+ 	if (infp == NULL) {
+ 		return _ERROR_OPEN;
+ 	}
+-	if((outfp=fopen(szPgnFile,"wb"))==NULL) 
++	if((outfp=fopen(szPgnFile,"wb"))==NULL) {
++		fclose(infp);
+ 		return _ERROR_OPEN;
++	}
+ 	while(!feof(infp)){
+ 		c=fgetc(infp);
+ 		fputc(c,outfp);
+--- a/src/engine/x86asm.h
++++ b/src/engine/x86asm.h
+@@ -133,7 +133,8 @@
+ #else
+ 
+ static __inline__ int Exchange(volatile int *Target, int Value) {
+-  int eax, ebx;
++  int eax=0; 
++  int ebx=0;
+   asm __volatile__ (
+     "xchgl %0, (%1)" "\n\t"
+     : "=a" (eax), "=b" (ebx)
+@@ -143,7 +144,9 @@
+ }
+ 
+ static __inline__ int CompareExchange(volatile int *Destination, int Exchange, int Comperand) {
+-  int eax, ebx, edx;
++  int eax=0; 
++  int ebx=0;
++  int edx=0;
+     asm __volatile__ (
+     "cmpxchgl %2, (%1)" "\n\t"
+     : "=a" (eax), "=b" (ebx), "=d" (edx)
+@@ -153,7 +156,8 @@
+ }
+ 
+ static __inline__ int ExchangeAdd(volatile int *Addend, int Increment) {
+-  int eax, ebx;
++  int eax=0;
++  int ebx=0;
+   asm __volatile__ (
+     "xaddl %0, (%1)" "\n\t"
+     : "=a" (eax), "=b" (ebx)
+--- a/src/main.cc
++++ b/src/main.cc
+@@ -30,13 +30,12 @@
+ //检测单一实例
+ int singleon(const std::string& url)
+ {
+-	int sockfd,nbytes;
+-	char buf[1024];
+-	struct hostent *he;
++	int sockfd;
++	//struct hostent *he;
+ 	struct sockaddr_in srvaddr;
+ 
+ 	EC_THROW(-1 == (sockfd=socket(AF_INET,SOCK_STREAM,0)));
+-	bzero(&srvaddr,sizeof(srvaddr));
++	memset(&srvaddr, 0, sizeof(srvaddr));
+ 	srvaddr.sin_family=AF_INET;
+ 	srvaddr.sin_port=htons(GMPORT);
+ 	srvaddr.sin_addr.s_addr=htonl(INADDR_ANY);
+--- a/src/robot.h
++++ b/src/robot.h
+@@ -39,12 +39,12 @@
+ 		ssize_t get_robot_log(char* buf, size_t count) 
+ 		{ return read(child_tem, buf, count); }
+ 
+-		typedef sigc::signal<void> type_signal_stop;
+-		type_signal_stop signal_stop()
++		typedef const sigc::signal<void> type_signal_stop;
++		type_signal_stop signal_stop() const
+ 		{ return signal_stop_; }
+ 
+-		typedef sigc::signal<void> type_signal_start;
+-		type_signal_start signal_start()
++		typedef const sigc::signal<void> type_signal_start;
++		type_signal_start signal_start() const
+ 		{ return signal_start_; }	
+ 	protected:
+ 		int my_system(char* const argv[]);
