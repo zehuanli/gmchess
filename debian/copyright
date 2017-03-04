@@ -1,0 +1,64 @@
+This package was debianized by Aron Xu <happyaron.xu@gmail.com> on
+Fri, 9 Oct 2009 22:11:04 +0800.
+
+It was downloaded from <http://gmchess.googlecode.com/files/gmchess-0.20.3.tar.bz2>
+
+Upstream Authors:
+
+    lerosua <lerosua@gmail.com>
+    xihes <xihes@gmail.com>
+
+Copyright:
+
+    Copyright (C) 2009 lerosua & xihes
+
+License:
+
+    This package is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License version 2 for more details.
+
+    You should have received a copy of the GNU General Public License
+    version 2 along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+On Debian systems, the complete text of the GNU General Public License
+version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+The Debian packaging is copyright 2009, Aron Xu <happyaron.xu@gmail.com> and
+is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+
+-------------------------------------------------------------------------------
+
+Files: data/gmchess.png
+Copyright: 2009 TG <linuxertony@gmail.com>
+License: GPL-2+
+
+-------------------------------------------------------------------------------
+
+Files: data/p1.png,data/p2.png
+Copyright: 2009 李祥 <pengkelee@gmail.com>
+License: GPL-2+
+
+-------------------------------------------------------------------------------
+
+Files: data/book.dat, data/wood/*, data/sound/*, src/engine/*
+Copyright: 2008, 黄晨 <webmaster@elephantbase.net>
+License: LGPL
+     On Debian systems the full text of the GNU Lesser General Public 
+     License can be found in the `/usr/share/common-licenses/LGPL'
+     file.
+-------------------------------------------------------------------------------
+
+Files: src/engine/mips.h
+Copyright: 2009 HjjHjj <hjjhjj@gmail.com>
+License: GPL-3+
+     On Debian systems the full text of the GNU General Public 
+     License can be found in the `/usr/share/common-licenses/GPL-3'
+     file.

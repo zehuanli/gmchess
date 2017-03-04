@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+CFLAGS = -g -O3
+CXXFLAGS = -g -O3
+LDFLAGS += -Wl,-z,defs -Wl,--as-needed -Wl,--no-undefined
+TMPDIR=debian/tmp
+
+%:
+	dh $@ --with autoreconf
+	
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	    --prefix=/usr \
+	    --bindir=/usr/games \
+	    --datarootdir=/usr/share \
+            CFLAGS="$(CFLAGS)" \
+            CXXFLAGS="$(CXXFLAGS)" \
+            LDFLAGS="$(LDFLAGS)"
+override_dh_auto_install:
+	dh_auto_install
+	sed -i 's!^Categories=.*!Categories=GTK;Game;!' \
+	    $(TMPDIR)/usr/share/applications/gmchess.desktop
+	sed -i 's!^Encoding=.*!!' \
+	    $(TMPDIR)/usr/share/applications/gmchess.desktop
+	find debian/ -name '*.la' -delete
+	mkdir -p $(TMPDIR)/usr/share/pixmaps
+	for size in 16 24 32 48; do \
+	    convert $(CURDIR)/data/gmchess.png -resize $${size} \
+	    $(TMPDIR)/usr/share/pixmaps/gmchess-$${size}.xpm || exit 1; \
+	    mkdir -p $(TMPDIR)/usr/share/icons/hicolor/$${size}x$${size}/apps || exit 1;  \
+	    convert $(CURDIR)/data/gmchess.png -resize $${size} \
+	    $(TMPDIR)/usr/share/icons/hicolor/$${size}x$${size}/apps/gmchess.png || exit 1; \
+	    done
+	mv $(TMPDIR)/usr/share/pixmaps/gmchess-48.xpm $(TMPDIR)/usr/share/pixmaps/gmchess.xpm
+	rm -f $(TMPDIR)/usr/share/pixmaps/gmchess.png
+	rm -f $(TMPDIR)/usr/share/man/man6/*.6.6.gz
+	dh_install
