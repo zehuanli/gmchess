@@ -1,0 +1,13 @@
+diff --git a/configure.in b/configure.in
+index 49d5d8c..6a70121 100644
+--- a/configure.in
++++ b/configure.in
+@@ -24,7 +24,7 @@ AC_SUBST(PACKAGE_CFLAGS)
+ AC_SUBST(PACKAGE_LIBS)
+ 
+ 
+-
++CXXFLAGS="-fpermissive -g"
+ 
+ 
+ 

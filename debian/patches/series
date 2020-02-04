@@ -1,2 +1,4 @@
 0002-fix-potfiles-skip.patch
 0003-fix-kfreebsd.patch
+0004-fix-desktop-mime.patch
+0005-fix-buster-configure.patch
