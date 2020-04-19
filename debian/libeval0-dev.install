@@ -1,2 +1,2 @@
-usr/lib/libeval.so
-usr/lib/*.a
+usr/lib/*/*.a
+usr/lib/*/libeval.so

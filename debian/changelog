@@ -1,3 +1,26 @@
+gmchess (0.29.6-3) UNRELEASE; urgency=medium
+
+  * Mark libeval0 and libeval0-dev as M-A: same.
+  * d/control: Remove outdated Replaces field for convert-pgn.
+  * d/control: Update homepage field and package descriptions.
+  * d/rules: Remove generation of xpm icons, prefer png icons.
+  * d/rules: Add "dh_missing --fail-missing".
+  * d/copyright: Update information.
+  * Drop dependency against libglademm, no longer used.
+  * Bump Standards-Version to 4.1.3.
+  * Bump debhelper compat version to v11.
+  * d/menu: File already dropped, thus closes: #776771.
+  * d/control: Remove homepage field, upstream already dead.
+  * d/control: Add Vcs fields.
+  * d/copyright: Rewrite in machine-readable format.
+  * d/watch: Removed, upstream dead.
+  * d/rules: Modernize usage of dh sequencer.
+  * Ack previous NMU. Thanks Adrian!
+  * Drop debian/menu file (should not coexist with desktop file).
+  * Bump debhelper compat to v10.
+    + Drop dep autotools-dev, not needed.
+  * Update Standards-Version to 4.1.0.
+
 gmchess (0.29.6-2.1) unstable; urgency=medium
 
   * Non-maintainer upload.
@@ -82,7 +105,7 @@ gmchess (0.29.2-1) unstable; urgency=low
 
 gmchess (0.29.1-1) unstable; urgency=low
 
-  * New upstream release: 
+  * New upstream release:
       Add network game support.
   * debian/control:
       Bump std-ver to 3.9.1;
@@ -93,8 +116,8 @@ gmchess (0.29.1-1) unstable; urgency=low
 gmchess (0.20.6-1) unstable; urgency=low
 
   * New upstream release.
-  * debian/control: 
-       Change section of eleeye from comm to games, 
+  * debian/control:
+       Change section of eleeye from comm to games,
        Raise Standards-Version from 3.8.3 to 3.8.4.
   * debian/source/format: using `3.0 (quilt)' format.
 

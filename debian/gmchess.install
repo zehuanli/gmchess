@@ -1,6 +1,7 @@
+usr/games/gmchess
+usr/share/applications/*
 usr/share/gmchess/*
 usr/share/locale/*
-usr/share/applications/*
 usr/share/man/man6/gmchess*
 usr/share/pixmaps/*
-usr/games/gmchess
+usr/share/icons/*
