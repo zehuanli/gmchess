@@ -1,3 +1,14 @@
+Description: fix configure error on Debian 10
+ .
+ This patch is come from atzlinux project.
+ https://www.atzlinux.com
+ .
+ The orig git commit info is:
+ .
+ https://gitee.com/atzlinux/gmchess/blob/0e9f9d01c17cd356132ebab17bc4998faa204da2/debian/patches/0005-fix-buster-configure.patch
+ .
+Author: mikeliang <combbs@gmail.com>
+
 diff --git a/configure.in b/configure.in
 index 49d5d8c..6a70121 100644
 --- a/configure.in
@@ -8,6 +19,4 @@ index 49d5d8c..6a70121 100644
  
 -
 +CXXFLAGS="-fpermissive -g"
- 
- 
  

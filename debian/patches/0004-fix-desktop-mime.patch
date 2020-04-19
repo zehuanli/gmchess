@@ -1,3 +1,18 @@
+Description: update desktop icon chinese Name and Comment and add mimetype
+ .
+ This patch is come from atzlinux project.
+ https://www.atzlinux.com
+ .
+ The orig git commit info is:
+ .
+ https://gitee.com/atzlinux/gmchess/blob/0e9f9d01c17cd356132ebab17bc4998faa204da2/debian/patches/0004-fix-desktop-mime.patch
+ .
+Author: xiao sheng wen <atzlinux@sina.com>
+
+---
+Last-Update: 2020-04-19
+
+
 diff --git a/data/gmchess.desktop.in b/data/gmchess.desktop.in
 index 9d75f7d..1a4b91a 100644
 --- a/data/gmchess.desktop.in

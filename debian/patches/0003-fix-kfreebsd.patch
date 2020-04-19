@@ -1,3 +1,11 @@
+Description: old patch come from Debian 9 gmchess (0.29.6-2.1) source code
+ This patch's Description is updated by xiao sheng wen for new verison upload.
+ .
+Author: xiao sheng wen <atzlinux@sina.com>
+
+---
+Last-Update: 2020-04-19
+
 --- a/src/Sound.cc
 +++ b/src/Sound.cc
 @@ -77,10 +77,12 @@
