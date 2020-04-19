@@ -20,7 +20,7 @@ Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/lerosua/gmchess
 Vcs-Git: https://salsa.debian.org/chinese-team/gmchess.git
-Vcs-Browser: https://salsa.debian.org/chinese-team/gmchess.git
+Vcs-Browser: https://salsa.debian.org/chinese-team/gmchess
 
 Package: convert-pgn
 Section: utils
