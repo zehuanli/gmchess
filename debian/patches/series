@@ -2,3 +2,4 @@
 0003-fix-kfreebsd.patch
 0004-fix-desktop-mime.patch
 0005-fix-buster-configure.patch
+0006-ec_throw.cpp.type-error.patch
