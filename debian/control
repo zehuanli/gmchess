@@ -6,7 +6,7 @@ Uploaders:
  Aron Xu <aron@debian.org>,
  Boyuan Yang <073plan@gmail.com>,
 Build-Depends:
- debhelper (>= 11),
+ debhelper (>= 12),
  gettext,
  imagemagick,
  intltool,
