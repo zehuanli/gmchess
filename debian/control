@@ -5,6 +5,7 @@ Maintainer: Debian Chinese Team <chinese-developers@lists.alioth.debian.org>
 Uploaders:
  Aron Xu <aron@debian.org>,
  Boyuan Yang <073plan@gmail.com>,
+ xiao sheng wen <atzlinux@sina.com>,
 Build-Depends:
  debhelper (>= 11),
  gettext,
