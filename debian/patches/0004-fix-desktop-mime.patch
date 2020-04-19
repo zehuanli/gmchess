@@ -11,7 +11,8 @@ index 9d75f7d..1a4b91a 100644
  Comment=Play the popular chinese chess game
 -Comment[zh_CN]=玩流行的中国象棋游戏
 +Comment[zh_CN]=中国象棋游戏，支持人机对战、打谱、保存棋谱
- Exec=gmchess
+-Exec=gmchess
++Exec=gmchess %f
  Icon=gmchess
  Terminal=false
  Type=Application
