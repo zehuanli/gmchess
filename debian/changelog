@@ -1,5 +1,21 @@
-gmchess (0.29.6-3) UNRELEASE; urgency=medium
+gmchess (0.29.6-3) unstable; urgency=medium
 
+  [ Faris Xiao ]
+  * Bumped Standards-Version to 4.5.0
+  * Bumped debhelper to >=12
+  * replaced debian/compat with the debhelper-compat virtual package
+  * set xiao sheng wen as Maintainer,delete from Uploaders
+  * delete unused patch:0001-fix-the-warning-from-cppcheck.patch
+  * add patch 0004-fix-desktop-mime.patch for desktop.in
+  * add patch 0005-fix-buster-configure.patch for Debian 10 configure
+  [ 肖盛文 ]
+  * add %f for Exec=gmchess in gmchess.desktop.in
+  * modify changelog.
+  * copy the whole debian dir from
+    git@salsa.debian.org:chinese-team/gmchess.git,
+    use master branch commit 195f039.
+    thanks for byang@debian.org
+  [ byang ]
   * Mark libeval0 and libeval0-dev as M-A: same.
   * d/control: Remove outdated Replaces field for convert-pgn.
   * d/control: Update homepage field and package descriptions.
@@ -19,7 +35,8 @@ gmchess (0.29.6-3) UNRELEASE; urgency=medium
   * Drop debian/menu file (should not coexist with desktop file).
   * Bump debhelper compat to v10.
     + Drop dep autotools-dev, not needed.
-  * Update Standards-Version to 4.1.0.
+
+ -- xiao sheng wen <atzlinux@sina.com>  Sun, 19 Apr 2020 18:45:46 +0800
 
 gmchess (0.29.6-2.1) unstable; urgency=medium
 
