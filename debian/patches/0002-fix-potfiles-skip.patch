@@ -1,5 +1,5 @@
 Description: old patch come from Debian 9 gmchess (0.29.6-2.1) source code
- This patch is updated for new verison upload to Debian by xiao sheng wen.
+ This patch is updated for new version upload to Debian by xiao sheng wen.
  .
  [xiao sheng wen]
  * delete unuse file entry 0001-fix-the-warning-from-cppcheck.patch
@@ -13,7 +13,8 @@ Index: gmchess-0.29.3/po/POTFILES.skip
 ===================================================================
 --- gmchess-0.29.3.orig/po/POTFILES.skip	2009-09-07 12:08:47.000000000 +0000
 +++ gmchess-0.29.3/po/POTFILES.skip	2011-08-18 17:55:11.398264018 +0000
-@@ -1,2 +1,4 @@
+@@ -1,2 +1,3 @@
  data/gmchess.desktop.in
  src/BookView.cc
 +data/confwin.glade
+

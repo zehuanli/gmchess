@@ -7,16 +7,17 @@ Description: update desktop icon chinese Name and Comment and add mimetype
  .
  https://gitee.com/atzlinux/gmchess/blob/0e9f9d01c17cd356132ebab17bc4998faa204da2/debian/patches/0004-fix-desktop-mime.patch
  .
-Author: xiao sheng wen <atzlinux@sina.com>
+Author: careone <emacslocale@126.com>
 
 ---
 Last-Update: 2020-04-19
 
 diff --git a/data/gmchess.desktop.in b/data/gmchess.desktop.in
-index 56fc1b6..05cc528 100644
+index 9d75f7d..05cc528 100644
 --- a/data/gmchess.desktop.in
 +++ b/data/gmchess.desktop.in
-@@ -1,12 +1,13 @@
+@@ -1,13 +1,14 @@
+-
  [Desktop Entry]
  Name=Chinese chess
 -Name[zh_CN]=天书棋谈
@@ -29,7 +30,10 @@ index 56fc1b6..05cc528 100644
  Icon=gmchess
  Terminal=false
  Type=Application
+-Categories=GNOME;GTK;Game;BoardGame;
 +MimeType=application/xiangqi-pgn;application/xiangqi-xqf;application/xiangqi-mxq;application/xiangqi-che;application/xiangqi-ccm;application/xiangqi-chn;application/xiangqi-xqi;
- Keywords=Xiangqi;Chess;Chinese;
- Keywords[zh_CN]=Xiangqi;Chess;Chinese;象棋;中国象棋;
- Categories=GTK;Game;
++Keywords=Xiangqi;Chess;Chinese;
++Keywords[zh_CN]=Xiangqi;Chess;Chinese;象棋;中国象棋;
++Categories=GTK;Game;
+ StartupNotify=true
+-Encoding=UTF-8
