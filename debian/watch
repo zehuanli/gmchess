@@ -1,2 +1,2 @@
-# the upstream is not active now.
-# https://github.com/lerosua/gmchess.git
+version=3
+https://github.com/lerosua/gmchess/index.html gmchess-(.*)\.tar\.gz
