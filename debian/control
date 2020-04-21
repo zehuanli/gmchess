@@ -1,10 +1,11 @@
 Source: gmchess
 Section: games
 Priority: optional
-Maintainer: xiao sheng wen <atzlinux@sina.com>
+Maintainer: Debian Chinese Team <debian-chinese-gb@lists.debian.org>
 Uploaders:
  Aron Xu <aron@debian.org>,
  Boyuan Yang <073plan@gmail.com>,
+ xiao sheng wen <atzlinux@sina.com>,
 Build-Depends:
  debhelper (>= 12),
  debhelper-compat (= 12),
