@@ -1,0 +1,174 @@
+Description: 0006-Fix-typos-found-by-codespell.patch
+  come from master branch commit: df4419b1ff8a5f4911125e596e3f649fbe82b739
+  modify by xiao sheng wen on 2020-04-22
+ .
+ gmchess (0.29.6-4) UNRELEASED; urgency=medium
+ .
+   [ 肖盛文 ]
+   * d/copyright:+Upstream-Contact: <lerosua@gmail.com>
+   * d/control:+Rules-Requires-Root: no
+   * add patch Description
+   * add watch file,documenting the situation of the upstream is not active
+   * fix Keywords lost
+   * fix type error for throw.cpp
+   * fix lintian: vcs-field-not-canonical
+   * add d/libeval0.symbols
+   * fix type error for src/ec_throw.cpp
+   * fix type error for doc/convert_pgn.6.in
+   * update patch Description etc.
+   * update watch to version=3
+   * update Debian Chinese Team maillist info to
+     debian-chinese-gb@lists.debian.org
+   * add 0004-fix-FenMirror-func-wrong-pointer-comparison.patch
+Author: xiao sheng wen <atzlinux@yeah.net>
+
+---
+
+Origin: https://salsa.debian.org/chinese-team/gmchess/-/commit/df4419b1ff8a5f4911125e596e3f649fbe82b739#0f0ef241abd5ac8293c6be90351c0e80ed57eeae
+Reviewed-By: Boyuan Yang <073plan@gmail.com>  2018-01-25 00:46:59
+Last-Update: 2020-04-22
+
+--- gmchess-0.29.6.orig/po/en.po
++++ gmchess-0.29.6/po/en.po
+@@ -112,7 +112,7 @@ msgstr "GMChess is a Chinese chess game
+ 
+ #: ../src/MainWindow.cc:735
+ msgid ""
+-"This program is licenced under GNU General Public Licence (GPL) version 2."
++"This program is licensed under GNU General Public Licence (GPL) version 2."
+ msgstr ""
+ "This program is licensed under the GNU General Public Licence (GPL) version "
+ "2."
+--- gmchess-0.29.6.orig/po/ru.po
++++ gmchess-0.29.6/po/ru.po
+@@ -114,7 +114,7 @@ msgid "GMChess is chinese chess game wri
+ msgstr "GMChess - китайские шахматы на gtkmm."
+ 
+ #: ../src/MainWindow.cc:735
+-msgid "This program is licenced under GNU General Public Licence (GPL) version 2."
++msgid "This program is licensed under GNU General Public Licence (GPL) version 2."
+ msgstr "Лицензия GNU GPL 2ая версия."
+ 
+ #: ../src/MainWindow.cc:753
+--- gmchess-0.29.6.orig/po/zh_CN.po
++++ gmchess-0.29.6/po/zh_CN.po
+@@ -112,7 +112,7 @@ msgid "GMChess is chinese chess game wri
+ msgstr "GMChess 是一款用Gtkmm库写成的中国象棋软件"
+ 
+ #: ../src/MainWindow.cc:735
+-msgid "This program is licenced under GNU General Public Licence (GPL) version 2."
++msgid "This program is licensed under GNU General Public Licence (GPL) version 2."
+ msgstr "此程序在 GNU 通用公共许可证第二版下发布。"
+ 
+ #: ../src/MainWindow.cc:753
+--- gmchess-0.29.6.orig/src/Board.h
++++ gmchess-0.29.6/src/Board.h
+@@ -53,10 +53,10 @@ class Board : public Gtk::DrawingArea
+ 		Glib::RefPtr<Gdk::Pixbuf> get_spic(const std::string& name_);
+ 
+ 		/** 由棋盘9x10坐标得到棋盘真实坐标*/
+-		/** get the true coordinate from 9x10 postion*/
++		/** get the true coordinate from 9x10 position*/
+ 		Gdk::Point get_coordinate(int pos_x, int pos_y);
+ 		/** 由棋盘真实坐标得到棋盘9x10坐标*/
+-		/** get the 9x10 postion from the true coordinate*/
++		/** get the 9x10 position from the true coordinate*/
+ 		Gdk::Point get_position(int pos_x, int pos_y);
+ 		/** 获取棋盘格子的长与宽*/
+ 		/** get the length and height with a chess grid */
+@@ -139,7 +139,7 @@ class Board : public Gtk::DrawingArea
+ 		 * 根据x，y坐标(棋盘9x10坐标)获取到达的坐标，与选择的棋子达成着法
+ 		 * 进行尝试性走棋
+ 		 */
+-		/** try to go move,(x,y) is the 9x10 postion */
++		/** try to go move,(x,y) is the 9x10 position */
+ 		int try_move(int x,int y);
+ 		/**
+ 		 * 直接根据着法尝试性走棋
+--- gmchess-0.29.6.orig/src/Engine.h
++++ gmchess-0.29.6/src/Engine.h
+@@ -169,10 +169,10 @@ class Engine {
+ 		inline int get_chessman_xy(int f_chess){return chessmans[f_chess] ; }
+ 
+ 		/** 得到着法的起点 */
+-		/** get the moves start postion*/
++		/** get the moves start position*/
+ 		int get_move_src(int mv){ return (int)mv & 255 ;}
+ 		/** 得到着法的终点 */
+-		/** get the moves end postion */
++		/** get the moves end position */
+ 		int get_move_dst(int mv){ return (int) (mv >>8)&255 ; }
+ 		/** 把着法转成ICCS坐标格式，比如 h2e2（炮二平五)*/
+ 		/**  convert moves to iccs format h2e2（炮二平五)*/
+@@ -198,7 +198,7 @@ class Engine {
+ 		 *	  the high level do move, it call do_move and logic_move 
+ 		 * @param mv 着法
+ 		 * @return 真即执行着法成功，false 执行失败
+-		 *	   retrun true means sucess. false means fail.
++		 *	   return true means success. false means fail.
+ 		 */
+ 		bool make_move(int mv);
+ 		/** 无检测执行着法 */
+@@ -240,13 +240,13 @@ class Engine {
+ 		/** add the eated chessman to moves */
+ 		int set_move_eat(int mv,int eated) { return mv + (eated <<16) ;}
+ 		/** 由目标及起点获得绊相角的位置坐标 */
+-		/** get the bishop leg from target and start postion */
++		/** get the bishop leg from target and start position */
+ 		int get_bishop_leg(int f_src,int f_dst)	{ return f_src + (f_dst-f_src)/2;}
+ 		/** 绊马脚用到的比较函数*/
+ 		/** compare the knight leg */
+ 		int knight_cmp(int x,int y);
+ 		/** 由目标及起点获得绊马脚的位置坐标 */
+-		/**  get the knight_ leg from target and start postion */
++		/**  get the knight_ leg from target and start position */
+ 		int get_knight_leg(int f_src,int f_dst)	;
+ 		/** 清理棋盘及棋子数组*/
+ 		/** clean all the chessman of board */
+--- gmchess-0.29.6.orig/src/MainWindow.cc
++++ gmchess-0.29.6/src/MainWindow.cc
+@@ -772,7 +772,7 @@ void MainWindow::on_menu_about()
+ 		about->set_copyright("Copyright (c) 2009 - 2011 lerosua");
+ 		about->set_comments(_("GMChess is chinese chess game write by gtkmm"));
+ 		about->set_authors(authors);
+-		about->set_license (_("This program is licenced under GNU General Public Licence (GPL) version 2."));
++		about->set_license (_("This program is licensed under GNU General Public Licence (GPL) version 2."));
+ 		Glib::ustring transer = "zh_CN lerosua@gmail.com\nru Sadovnikov Dmitry <xbadcode@mail.ru>";
+ 		about->set_translator_credits(transer);
+ 
+--- gmchess-0.29.6.orig/src/engine/convert_pgn.cpp
++++ gmchess-0.29.6/src/engine/convert_pgn.cpp
+@@ -1,5 +1,5 @@
+ /*
+-CCM->PGN Convertor - a Chinese Chess Score Convertion Program
++CCM->PGN Convertor - a Chinese Chess Score Conversion Program
+ Designed by Morning Yellow, Version: 3.14, Last Modified: Jun. 2008
+ Copyright (C) 2004-2007 www.elephantbase.net
+ 
+--- gmchess-0.29.6.orig/src/engine/pgnfile.cpp
++++ gmchess-0.29.6/src/engine/pgnfile.cpp
+@@ -1,5 +1,5 @@
+ /*
+-PGN->XQF - a Chinese Chess Score Convertion Program
++PGN->XQF - a Chinese Chess Score Conversion Program
+ Designed by Morning Yellow, Version: 2.1, Last Modified: Jun. 2007
+ Copyright (C) 2004-2007 www.elephantbase.net
+ 
+--- gmchess-0.29.6.orig/src/engine/pgnfile.h
++++ gmchess-0.29.6/src/engine/pgnfile.h
+@@ -1,5 +1,5 @@
+ /* 
+-PGN->XQF - a Chinese Chess Score Convertion Program
++PGN->XQF - a Chinese Chess Score Conversion Program
+ Designed by Morning Yellow, Version: 2.1, Last Modified: Jun. 2007
+ Copyright (C) 2004-2007 www.elephantbase.net
+ 
+--- gmchess-0.29.6.orig/src/engine/xqffile.h
++++ gmchess-0.29.6/src/engine/xqffile.h
+@@ -1,5 +1,5 @@
+ /*
+-XQF->PGN Convertor - a Chinese Chess Score Convertion Program
++XQF->PGN Convertor - a Chinese Chess Score Conversion Program
+ Designed by Morning Yellow, Version: 2.02, Last Modified: Apr. 2007
+ Copyright (C) 2004-2007 www.elephantbase.net
+ 

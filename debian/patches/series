@@ -6,3 +6,4 @@
 0007-convert_pgn.6.in.patch
 0004-fix-FenMirror-func-wrong-pointer-comparison.patch
 0005-Fix-insecure-printf-usage-in-Board.cc.patch
+0006-Fix-typos-found-by-codespell.patch
