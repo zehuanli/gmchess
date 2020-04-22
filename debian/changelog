@@ -1,3 +1,24 @@
+gmchess (0.29.6-4) UNRELEASED; urgency=medium
+
+  [ 肖盛文 ]
+  * d/copyright:+Upstream-Contact: <lerosua@gmail.com>
+  * d/control:+Rules-Requires-Root: no
+  * add patch Description
+  * add watch file,documenting the situation of the upstream is not active
+  * fix Keywords lost
+  * fix type error for throw.cpp
+  * fix lintian: vcs-field-not-canonical
+  * add d/libeval0.symbols
+  * fix type error for src/ec_throw.cpp
+  * fix type error for doc/convert_pgn.6.in
+  * update patch Description etc.
+  * update watch to version=3
+  * update Debian Chinese Team maillist info to
+    debian-chinese-gb@lists.debian.org
+  * add 0004-fix-FenMirror-func-wrong-pointer-comparison.patch
+
+ -- xiao sheng wen <atzlinux@yeah.net>  Wed, 22 Apr 2020 17:04:48 +0800
+
 gmchess (0.29.6-3) unstable; urgency=medium
 
   [ Faris Xiao ]
