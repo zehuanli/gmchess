@@ -1,0 +1,22 @@
+From: Boyuan Yang <073plan@gmail.com>
+Date: Mon, 21 Aug 2017 14:16:31 +0800
+Subject: fix FenMirror func wrong pointer comparison
+
+This causes FTBFS on gcc-7.
+---
+ src/engine/cchess.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/engine/cchess.cpp b/src/engine/cchess.cpp
+index ca12e4e..79bd8c7 100644
+--- a/src/engine/cchess.cpp
++++ b/src/engine/cchess.cpp
+@@ -690,7 +690,7 @@ void FenMirror(char *szFenDst, const char *szFenSrc) {
+     }
+     lpSrc ++;
+   };
+-  while(lpSrc != '\0' && lpDst < lpDstLimit) {
++  while(lpSrc && lpDst < lpDstLimit) {
+     *lpDst = *lpSrc;
+     lpSrc ++;
+     lpDst ++;
