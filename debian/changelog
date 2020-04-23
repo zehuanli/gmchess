@@ -1,4 +1,4 @@
-gmchess (0.29.6-4) UNRELEASED; urgency=medium
+gmchess (0.29.6-4) unstable; urgency=medium
 
   [ 肖盛文 ]
   * d/copyright:+Upstream-Contact: <lerosua@gmail.com>
@@ -16,8 +16,27 @@ gmchess (0.29.6-4) UNRELEASED; urgency=medium
   * update Debian Chinese Team maillist info to
     debian-chinese-gb@lists.debian.org
   * add 0004-fix-FenMirror-func-wrong-pointer-comparison.patch
+  * add 0005-Fix-insecure-printf-usage-in-Board.cc.patch
+  * add 0006-Fix-typos-found-by-codespell.patch
+  * cherry-pick zh_CN.po.patch file
+  * move the zh_CN.po type error patch
+  * 0007-m-b-fix-typo.patch
+  * 0008-m-b-man.patch
+  * 0009-m-b-Engine.cc.patch
+  * 0010-m-b-po.patch
+  * 0011-m-b-Sound.cc.patch
+  * 0012-m-b-ucci.cpp.patch
+  * 0013-m-b-position.cpp.patch
+  * 0014-m-b-Engine.cc.patch
+  * 0015-m-b-Board.cc.patch
+  * 0016-m-b-Board.cc-2.patch
+  * 0017-m-b-Engine.patch
+  * 0018-m-b-misc.patch
+  * use patch files to modify the upstream source code.
+    These patch files included the useable change of upstream until to the
+    tag: debian/0.29.6.3-1
 
- -- xiao sheng wen <atzlinux@yeah.net>  Wed, 22 Apr 2020 17:04:48 +0800
+ -- xiao sheng wen <atzlinux@sina.com>  Thu, 23 Apr 2020 23:47:09 +0800
 
 gmchess (0.29.6-3) unstable; urgency=medium
 
