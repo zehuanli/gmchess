@@ -50,17 +50,6 @@ Last-Update: 2020-04-22
  msgstr "Лицензия GNU GPL 2ая версия."
  
  #: ../src/MainWindow.cc:753
---- gmchess-0.29.6.orig/po/zh_CN.po
-+++ gmchess-0.29.6/po/zh_CN.po
-@@ -112,7 +112,7 @@ msgid "GMChess is chinese chess game wri
- msgstr "GMChess 是一款用Gtkmm库写成的中国象棋软件"
- 
- #: ../src/MainWindow.cc:735
--msgid "This program is licenced under GNU General Public Licence (GPL) version 2."
-+msgid "This program is licensed under GNU General Public Licence (GPL) version 2."
- msgstr "此程序在 GNU 通用公共许可证第二版下发布。"
- 
- #: ../src/MainWindow.cc:753
 --- gmchess-0.29.6.orig/src/Board.h
 +++ gmchess-0.29.6/src/Board.h
 @@ -53,10 +53,10 @@ class Board : public Gtk::DrawingArea

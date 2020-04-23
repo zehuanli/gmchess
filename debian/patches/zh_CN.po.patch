@@ -401,7 +401,7 @@ Last-Update: 2020-04-13
 -#: ../data/gmchess.glade.h:11
 -msgid "6"
 -msgstr "6"
-+msgid "This program is licenced under GNU General Public Licence (GPL) version 2."
++msgid "This program is licensed under GNU General Public Licence (GPL) version 2."
 +msgstr "此程序在 GNU 通用公共许可证第二版下发布。"
  
 -#: ../data/gmchess.glade.h:12
