@@ -1,0 +1,32 @@
+commit d8079e9475a1643df28a92de5a1b30a19bce445a
+Author: Boyuan Yang <073plan@gmail.com>
+Date:   Tue Feb 6 22:05:55 2018 +0800
+
+    [WIP] src: Fix problems found by check-all-the-things
+
+diff --git a/src/engine/mips.h b/src/engine/mips.h
+index 6d7040b..e24f70a 100644
+--- a/src/engine/mips.h
++++ b/src/engine/mips.h
+@@ -14,7 +14,7 @@
+  * See the GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License along
+- * with this program.  If not, see <http://www.gnu.org/licenses/>.
++ * with this program.  If not, see <https://www.gnu.org/licenses/>.
+  */
+ #ifndef HJJHJJ_MIPS_H
+ #define HJJHJJ_MIPS_H
+diff --git a/src/MainWindow.cc b/src/MainWindow.cc
+index 528680e..af26ea5 100644
+--- a/src/MainWindow.cc
++++ b/src/MainWindow.cc
+@@ -768,7 +768,7 @@ void MainWindow::on_menu_about()
+ 		if(GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>=12)
+ 			about->set_program_name("GMChess");
+ 		about->set_version(version);
+-		about->set_website("http://lerosua.org");
++		about->set_website("https://github.com/lerosua/gmchess");
+ 		about->set_copyright("Copyright (c) 2009 - 2011 lerosua");
+ 		about->set_comments(_("GMChess is chinese chess game write by gtkmm"));
+ 		about->set_authors(authors);
