@@ -7,8 +7,7 @@ Uploaders:
  Boyuan Yang <073plan@gmail.com>,
  xiao sheng wen <atzlinux@sina.com>,
 Build-Depends:
- debhelper (>= 12),
- debhelper-compat (= 12),
+ debhelper-compat (= 13),
  gettext,
  imagemagick,
  intltool,
