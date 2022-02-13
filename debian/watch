@@ -1,2 +1,4 @@
-version=3
-https://github.com/lerosua/gmchess/index.html gmchess-(.*)\.tar\.gz
+version=4
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*@ARCHIVE_EXT@)%@PACKAGE@-$1%" \
+     https://github.com/lerosua/gmchess/tags \
+     (?:.*?/)?v?@ANY_VERSION@@ARCHIVE_EXT@ debian uupdate
