@@ -1,3 +1,23 @@
+gmchess (0.29.6.3-2) unstable; urgency=medium
+
+  [ xiao sheng wen ]
+  * update to new upstream 0.29.6.3, expect debian dir
+  * update d/p/0004-fix-desktop-mime.patch
+  * rm d/p/0005-fix-buster-configure.patch
+  * update d/p/series
+  * delete many patch files, the new upstream applied
+  * d/p/*.patch: add Forwarded: not-need
+  * update d/libeval0.symbols for 0.29.6.3-2
+  * add d/gbp.conf
+  * d/rules: delete export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+  * Bump debhelper-compat (= 13)
+  * d/copyright: update year info to 2022
+  * d/changelog: add changelog between in 0.29.6-3 ==> 0.29.6.3-1
+  * d/control: Bump Standards-Version: 4.6.0
+  * d/watch: update to version=4
+
+ -- xiao sheng wen <atzlinux@sina.com>  Sun, 13 Feb 2022 21:51:09 +0800
+
 gmchess (0.29.6-4) unstable; urgency=medium
 
   [ 肖盛文 ]
