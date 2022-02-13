@@ -78,6 +78,60 @@ gmchess (0.29.6-3) unstable; urgency=medium
 
  -- xiao sheng wen <atzlinux@sina.com>  Sun, 19 Apr 2020 18:45:46 +0800
 
+gmchess (0.29.6.3-1) unstable; urgency=medium
+
+  * New release (2018-02-08).
+    + Fix some crashes.
+    + Various clean-ups.
+  * Mark libeval0 and libeval0-dev as M-A: same.
+  * d/control: Remove outdated Replaces field for convert-pgn.
+
+ -- Boyuan Yang <073plan@gmail.com>  Wed, 07 Feb 2018 23:45:28 +0800
+
+gmchess (0.29.6.2-1) unstable; urgency=medium
+
+  * New release (2018-01-29).
+    + I18n and translation for preferences subpage.
+    + Various clean-ups.
+  * d/control: Update homepage field and package descriptions.
+  * d/rules: Remove generation of xpm icons, prefer png icons.
+  * d/rules: Add "dh_missing --fail-missing".
+  * d/copyright: Update information.
+
+ -- Boyuan Yang <073plan@gmail.com>  Mon, 29 Jan 2018 20:17:39 +0800
+
+gmchess (0.29.6.1-1) unstable; urgency=medium
+
+  * New release (2018-01-25).
+    + Developing under Debian Salsa platform as upstream already dead.
+    + Complete zh_CN translation.
+    + Various clean-up and bugfixes.
+  * Drop dependency against libglademm, no longer used.
+  * Bump Standards-Version to 4.1.3.
+  * Bump debhelper compat version to v11.
+  * d/menu: File already dropped, thus closes: #776771.
+  * d/control: Remove homepage field, upstream already dead.
+  * d/control: Add Vcs fields.
+  * d/patches: Remove all patches, we are acting as the de fecto upstream.
+  * d/copyright: Rewrite in machine-readable format.
+  * d/watch: Removed, upstream dead.
+  * d/rules: Modernize usage of dh sequencer.
+
+ -- Boyuan Yang <073plan@gmail.com>  Thu, 25 Jan 2018 23:36:13 +0800
+
+gmchess (0.29.6-3) unstable; urgency=medium
+
+  * Team Upload.
+  * Add myself into uploaders list.
+  * Ack previous NMU. Thanks Adrian!
+  * Drop debian/menu file (should not coexist with desktop file).
+  * Bump debhelper compat to v10.
+    + Drop dep autotools-dev, not needed.
+  * Update Standards-Version to 4.1.0.
+  * Add patch to fix FTBFS with gcc-7. Closes: #853423
+
+ -- Boyuan Yang <073plan@gmail.com>  Wed, 23 Aug 2017 14:06:43 +0800
+
 gmchess (0.29.6-2.1) unstable; urgency=medium
 
   * Non-maintainer upload.
