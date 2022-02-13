@@ -7,7 +7,6 @@ Files: *
 Copyright: 2009-2012 lerosua <lerosua@gmail.com>
            2009-2012 xihes <xihes@gmail.com>
            2018 Boyuan Yang <073plan@gmail.com>
-           2020 xiao sheng wen <atzlinux@sina.com>
 License: GPL-2+
 Comments:
  An inactive upstream can be found at GitHub:
@@ -16,7 +15,7 @@ Comments:
 Files: debian/*
 Copyright: 2009, Aron Xu <aron@debian.org>
            2018, Boyuan Yang <073plan@gmail.com>
-           2020 xiao sheng wen <atzlinux@sina.com>
+           2020-2022, xiao sheng wen <atzlinux@sina.com>
 License: GPL-2+
 
 Files: data/gmchess.png
