@@ -2,30 +2,31 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
-AC_INIT(gmchess, 0.29.6, lerosua@gmail.com)
+AC_INIT(
+  [GMchess],
+  [0.29.6.3],
+  [lerosua@gmail.com],
+  [gmchess],
+  [https://salsa.debian.org/chinese-team/gmchess])
 AC_CONFIG_SRCDIR([src/Pgnfile.cc])
 AM_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE(gmchess,0.29.6)
-
+AC_CONFIG_MACRO_DIRS([m4])
+AM_INIT_AUTOMAKE
 
 IT_PROG_INTLTOOL([0.35.0])
 AC_PROG_LIBTOOL
-
 
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
 
+
 # Checks for libraries.
 pkg_modules="gtkmm-2.4 >= 2.6.0"
 PKG_CHECK_MODULES(PACKAGE, $pkg_modules)
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
-
-
-
-
 
 
 # Checks for header files.
