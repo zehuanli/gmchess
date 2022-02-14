@@ -26,6 +26,3 @@ override_dh_auto_install:
 	    $(TMPDIR)/usr/share/icons/hicolor/$${size}x$${size}/apps/gmchess.png || exit 1; \
 	    done
 	rm -f $(TMPDIR)/usr/share/man/man6/*.6.6.gz
-
-override_dh_missing:
-	dh_missing --fail-missing
