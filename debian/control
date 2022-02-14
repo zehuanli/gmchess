@@ -1,7 +1,7 @@
 Source: gmchess
 Section: games
 Priority: optional
-Maintainer: Debian Chinese Team <debian-chinese-gb@lists.debian.org>
+Maintainer: Debian Chinese Team <chinese-developers@lists.alioth.debian.org>
 Uploaders:
  Aron Xu <aron@debian.org>,
  Boyuan Yang <073plan@gmail.com>,

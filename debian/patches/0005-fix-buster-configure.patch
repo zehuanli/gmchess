@@ -1,6 +1,6 @@
-Description: fix configure error on Debian 10
- .
- This patch is come from atzlinux project.
+Description: fix gmchess run error on Debian 10
+Forwarded: not-need
+ This patch is orig come from atzlinux project.
  https://www.atzlinux.com
  .
  The orig git commit info is:
@@ -8,17 +8,22 @@ Description: fix configure error on Debian 10
  https://gitee.com/atzlinux/gmchess/blob/0e9f9d01c17cd356132ebab17bc4998faa204da2/debian/patches/0005-fix-buster-configure.patch
  .
 Author: mikeliang <combbs@gmail.com>
+ On 2022-02-14, update this patch as new upstream version use configure.ac.
+Reviewed-by: xiao sheng wen <atzlinux@sina.com>
 
-Index: gmchess/configure.in
-===================================================================
---- gmchess.orig/configure.in
-+++ gmchess/configure.in
-@@ -24,7 +24,7 @@ AC_SUBST(PACKAGE_CFLAGS)
+---
+Last-Update: 2022-02-14
+
+diff --git a/configure.ac b/configure.ac
+index cc7e3db..07d6fbd 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -28,6 +28,7 @@ PKG_CHECK_MODULES(PACKAGE, $pkg_modules)
+ AC_SUBST(PACKAGE_CFLAGS)
  AC_SUBST(PACKAGE_LIBS)
  
- 
--
 +CXXFLAGS="-fpermissive -g"
  
- 
- 
+ # Checks for header files.
+ AC_CHECK_HEADERS([arpa/inet.h libintl.h locale.h netdb.h netinet/in.h stdint.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/timeb.h unistd.h])
+
