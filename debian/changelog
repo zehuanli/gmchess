@@ -1,3 +1,10 @@
+gmchess (0.29.6.3-3) unstable; urgency=medium
+
+  * d/p/0004-fix-desktop-mime.patch: add BoardGame Categories, it used by KDE
+  * d/clean: add po/.intltool-merge-cache.lock
+
+ -- xiao sheng wen <atzlinux@sina.com>  Sat, 29 Oct 2022 16:21:57 +0800
+
 gmchess (0.29.6.3-2) unstable; urgency=low
 
   [ xiao sheng wen ]
