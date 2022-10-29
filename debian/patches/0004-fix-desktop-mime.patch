@@ -8,15 +8,18 @@ Forwarded: not-need
  https://gitee.com/atzlinux/gmchess/blob/0e9f9d01c17cd356132ebab17bc4998faa204da2/debian/patches/0004-fix-desktop-mime.patch
  .
 Author: careone <emacslocale@126.com>
+ .
+ 2022-10-29: add BoardGame Categories, it used by KDE.
+             xiao sheng wen <atzlinux@sina.com>
 
 ---
-Last-Update: 2022-02-13
+Last-Update: 2022-10-29
 
 diff --git a/data/gmchess.desktop.in b/data/gmchess.desktop.in
-index 56fc1b6..05cc528 100644
+index 56fc1b6..d9c27c9 100644
 --- a/data/gmchess.desktop.in
 +++ b/data/gmchess.desktop.in
-@@ -1,12 +1,13 @@
+@@ -1,13 +1,14 @@
  [Desktop Entry]
  Name=Chinese chess
 -Name[zh_CN]=天书棋谈
@@ -32,5 +35,6 @@ index 56fc1b6..05cc528 100644
 +MimeType=application/xiangqi-pgn;application/xiangqi-xqf;application/xiangqi-mxq;application/xiangqi-che;application/xiangqi-ccm;application/xiangqi-chn;application/xiangqi-xqi;
  Keywords=Xiangqi;Chess;Chinese;
  Keywords[zh_CN]=Xiangqi;Chess;Chinese;象棋;中国象棋;
- Categories=GTK;Game;
-
+-Categories=GTK;Game;
++Categories=GTK;Game;BoardGame;
+ StartupNotify=true
